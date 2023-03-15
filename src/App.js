@@ -48,11 +48,6 @@ export default function App() {
     }
   };
 
-  const _loadTasks = async () => {
-    const loadedTasks = await AsyncStorage.getItem('tasks');
-    setTasks(JSON.parse(loadedTasks || '{}'));
-  };
-
   const _addTask = () => {
     const ID = Date.now().toString();
     const newTaskObject = {
@@ -88,7 +83,7 @@ export default function App() {
   const _onBlur = () => {
     setNewTask('');
   };
-  return isReady ? (
+  return (
     <ThemeProvider theme={theme}>
       <Container>
         <StatusBar
@@ -118,11 +113,5 @@ export default function App() {
         </List>
       </Container>
     </ThemeProvider>
-  ) : (
-    <AppLoading
-      startAsync={_loadTasks}
-      onFinish={() => setIsReady(true)}
-      onError={console.error}
-    />
   );
 }

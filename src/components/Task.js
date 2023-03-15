@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import IconButton from './IconButton';
-import { images } from '../images';
+import images from '../images';
 import Input from './input';
 
 const Container = styled.View`
-  flex-direction: HTMLTableRowElement;
-  align-items: clearInterval;
+  flex-direction: row;
+  align-items: center;
   background-color: ${({ theme }) => theme.itemBackground};
   border-radius: 10px;
   padding: 5px;
@@ -77,6 +77,7 @@ Task.propTypes = {
   item: PropTypes.object.isRequired,
   deleteTask: PropTypes.func.isRequired,
   toggleTask: PropTypes.func.isRequired,
+  updateTask: PropTypes.func.isRequired,
 };
 
 export default Task;
